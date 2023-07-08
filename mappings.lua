@@ -6,6 +6,14 @@ M.dap = {
     ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>"},
     ["<leader>dcb"] = {"<cmd> DapContinue <CR>"};
     ["<leader>dtb"] = {"<cmd> DapTerminate <CR>"};
+    ["<leader>duc"] = {
+      function ()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.close();
+      end,
+      "Close dapui"
+    },
     ["<leader>dus"] = {
       function ()
         local widgets = require("dap.ui.widgets");
@@ -55,7 +63,8 @@ M.dap_python = {
     ["<leader>dpr"] = {
       function()
         require('dap-python').test_method()
-      end
+      end,
+      "Run Python test"
     }
   }
 }
