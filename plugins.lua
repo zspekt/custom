@@ -12,6 +12,9 @@ local plugins = {
       },
   },
   {
+    require('nvim-tree').setup({view = {relativenumber = true, number = true}})
+  },
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
