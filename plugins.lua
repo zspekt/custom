@@ -1,5 +1,17 @@
 local plugins = {
   {
+    'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    lazy = false,
+  },
+  -- require('telescope').load_extension('fzf'),
+  {
+    -- vimgrep arguments do NOT apply to the find_files built-in module
+    "nvim-telescope/telescope.nvim",
+    options = {
+      extensions_list = { "fzf" },
+      },
+  },
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
@@ -13,6 +25,7 @@ local plugins = {
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
       end
+    -- this closes the DAP ui once it's done executing. commented out   
     --   dap.listeners.before.event_terminated["dapui_config"] = function()
     --     dapui.close()
     --   end

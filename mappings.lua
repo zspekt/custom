@@ -34,6 +34,15 @@ M.dap = {
   }
 }
 
+M.telescope = {
+  plugin = true,
+
+  n = {
+    -- find
+    ["<leader>ff"] = { "<cmd> Telescope find_files hidden=true <CR>", "Find files" },
+  },
+}
+
 M.dap_go = {
   plugin = true,
   n = {
