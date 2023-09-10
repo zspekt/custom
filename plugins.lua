@@ -1,16 +1,16 @@
 local plugins = {
-  {
-    'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
-    lazy = false,
-  },
-  -- require('telescope').load_extension('fzf'),
-  {
-    -- vimgrep arguments do NOT apply to the find_files built-in module
-    "nvim-telescope/telescope.nvim",
-    options = {
-      extensions_list = { "fzf" },
-      },
-  },
+  -- This should be set here in CUSTOM instead of in the .config/nvim/lua/plugins/configs/nvimtree.lua
+  -- but I am lazy. Will get around to it sometime
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   options = {
+  --     view = {
+  --       number = true,
+  --       relativenumber = true
+  --     },
+  --   },
+  -- },
+  -- vimgrep arguments do NOT apply to the find_files built-in module
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
