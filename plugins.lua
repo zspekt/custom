@@ -13,11 +13,20 @@ local plugins = {
   -- vimgrep arguments do NOT apply to the find_files built-in module
 
   {
+    'nvim-treesitter/nvim-treesitter-context',
+    lazy = false,
+    opts = function()
+      return require "custom.configs.nvim-treesitter-context"
+    end,
+  },
+
+  {
     'luckasRanarison/tree-sitter-hypr',
     lazy = false
   },
 
   {
+    -- cool cursor effect when switching windows/doing long jumps
     'danilamihailov/beacon.nvim',
     lazy = false,
   },
