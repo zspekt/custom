@@ -11,6 +11,17 @@ local plugins = {
   --   },
   -- },
   -- vimgrep arguments do NOT apply to the find_files built-in module
+
+  {
+    'luckasRanarison/tree-sitter-hypr',
+    lazy = false
+  },
+
+  {
+    'danilamihailov/beacon.nvim',
+    lazy = false,
+  },
+
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
