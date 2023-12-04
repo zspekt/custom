@@ -16,21 +16,15 @@ M.dap = {
   plugin = true,
   n = {
     ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>"},
-    ["<leader>dc"] = {"<cmd> DapContinue <CR>"};
-    ["<leader>dt"] = {"<cmd> DapTerminate <CR>"};
-    ["<F7>"] = {"<cmd> DapStepInto <CR>"};
-    ["<F8>"] = {"<cmd> DapStepOver <CR>"};
+    ["<leader>dcb"] = {"<cmd> DapContinue <CR>"};
+    ["<leader>dtb"] = {"<cmd> DapTerminate <CR>"};
     ["<leader>duc"] = {
       function ()
-      require("dapui").close();
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.close();
       end,
-      "Close Dap interface"
-    },
-    ["<leader>duo"] = {
-      function ()
-      require("dapui").open();
-      end,
-      "Open Dap interface"
+      "Close dapui"
     },
     ["<leader>dus"] = {
       function ()
