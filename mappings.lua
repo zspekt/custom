@@ -26,6 +26,14 @@ M.dap = {
       end,
       "Close dapui"
     },
+    ["<leader>duo"] = {
+      function ()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.open();
+      end,
+      "Open dapui"
+    },
     ["<leader>dus"] = {
       function ()
         local widgets = require("dap.ui.widgets");
