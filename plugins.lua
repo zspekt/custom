@@ -13,6 +13,11 @@ local plugins = {
   -- vimgrep arguments do NOT apply to the find_files built-in module
 
   {
+    "olimorris/persisted.nvim",
+    config = true
+  },
+
+  {
     'nvim-treesitter/nvim-treesitter-context',
     lazy = false,
     opts = function()
