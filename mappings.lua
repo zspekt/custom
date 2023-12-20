@@ -15,6 +15,10 @@ M.general = {
 M.dap = {
   plugin = true,
   n = {
+    ["<F6>"] = {"<cmd> DapStepOut"},
+    ["<F7>"] = {"<cmd> DapStepInto"},
+    ["<F8>"] = {"<cmd> DapStepOver"},
+
     ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>"},
     ["<leader>dcb"] = {"<cmd> DapContinue <CR>"};
     ["<leader>dtb"] = {"<cmd> DapTerminate <CR>"};
