@@ -1,22 +1,51 @@
-local config = require("plugins.configs.lspconfig")
+local config = require "plugins.configs.lspconfig"
 
 local on_attach = config.on_attach
 local capabilities = config.capabilities
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
-lspconfig.pyright.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = {"python"},
-})
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+  }
+  vim.lsp.buf.execute_command(params)
+end
 
-lspconfig.gopls.setup{
+lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {"go", "gomod", "gowork", "gotmpl" },
-  cmd = {"gopls"},
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize imports",
+    },
+  },
+}
+
+lspconfig.biome.setup {
+  -- on_attach = on_attach,
+  -- capabilities = capabilities,
+}
+
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "python" },
+}
+
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  cmd = { "gopls" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
     gopls = {
@@ -24,7 +53,7 @@ lspconfig.gopls.setup{
       usePlaceholders = true,
       analyses = {
         unusedparams = true,
-      }
+      },
     },
   },
 }

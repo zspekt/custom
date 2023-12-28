@@ -16,21 +16,21 @@ local plugins = {
   },
 
   {
-    'AckslD/muren.nvim',
+    "AckslD/muren.nvim",
     config = true,
     create_commands = false,
     keys = {
-      {"<leader>rr", "<cmd>lua require('muren.api').toggle_ui()<CR>", desc = "Toggle Muren UI"},
+      { "<leader>rr", "<cmd>lua require('muren.api').toggle_ui()<CR>", desc = "Toggle Muren UI" },
     },
   },
 
   {
     "olimorris/persisted.nvim",
-    config = true
+    config = true,
   },
 
   {
-    'nvim-treesitter/nvim-treesitter-context',
+    "nvim-treesitter/nvim-treesitter-context",
     lazy = false,
     opts = function()
       return require "custom.configs.nvim-treesitter-context"
@@ -38,13 +38,13 @@ local plugins = {
   },
 
   {
-    'luckasRanarison/tree-sitter-hypr',
-    lazy = false
+    "luckasRanarison/tree-sitter-hypr",
+    lazy = false,
   },
 
   {
     -- cool cursor effect when switching windows/doing long jumps
-    'danilamihailov/beacon.nvim',
+    "danilamihailov/beacon.nvim",
     lazy = false,
   },
 
@@ -54,51 +54,56 @@ local plugins = {
   },
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
+      local dap = require "dap"
+      local dapui = require "dapui"
       dapui.setup()
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
       end
-    -- this closes the DAP ui once it's done executing. commented out   
-    --   dap.listeners.before.event_terminated["dapui_config"] = function()
-    --     dapui.close()
-    --   end
-    --   dap.listeners.before.event_exited["dapui_config"] = function()
-    --     dapui.close()
-    --   end
-    end
+      -- this closes the DAP ui once it's done executing. commented out
+      --   dap.listeners.before.event_terminated["dapui_config"] = function()
+      --     dapui.close()
+      --   end
+      --   dap.listeners.before.event_exited["dapui_config"] = function()
+      --     dapui.close()
+      --   end
+    end,
   },
   {
     "leoluz/nvim-dap-go",
+    event = "VeryLazy",
     ft = "go",
     dependencies = "mfussenegger/nvim-dap",
     config = function(_, opts)
       require("dap-go").setup(opts)
-      require("core.utils").load_mappings("dap_go")
-    end
+      require("core.utils").load_mappings "dap_go"
+    end,
   },
   {
     "olexsmir/gopher.nvim",
+    event = "VeryLazy",
     ft = "go",
-    config = function (_, opts)
+    config = function(_, opts)
       require("gopher").setup(opts)
-      require("core.utils").load_mappings("gopher")
+      require("core.utils").load_mappings "gopher"
     end,
-    build = function ()
+    build = function()
       vim.cmd [[silent! GoInstallDeps]]
-    end
+    end,
   },
   {
     "mfussenegger/nvim-dap",
+    event = "VeryLazy",
     config = function(_, opts)
-      require("core.utils").load_mappings("dap")
-    end
+      require("core.utils").load_mappings "dap"
+    end,
   },
   {
     "mfussenegger/nvim-dap-python",
+    event = "VeryLazy",
     ft = "python",
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -107,26 +112,45 @@ local plugins = {
     config = function(_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      require("core.utils").load_mappings("dap_python")
+      require("core.utils").load_mappings "dap_python"
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = { "python", "go" },
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
+    -- ft = { "python", "go" },
     opts = function()
       return require "custom.configs.null-ls"
     end,
   },
   {
     "williamboman/mason.nvim",
+    event = "VeryLazy",
     opts = {
       ensure_installed = {
+        -- go
+        "gopls",
+
+        -- python
         "black",
         "debugpy",
         "mypy",
         "ruff",
         "pyright",
-        "gopls",
+
+        -- lua
+        "stylua",
+        "luacheck",
+
+        -- js/ts
+        "biome",
+        "typescript-language-server",
+
+        "js-debug-adapter",
+
+        -- shell
+        "shfmt",
+        "shellcheck",
       },
     },
   },

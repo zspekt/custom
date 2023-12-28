@@ -2,51 +2,47 @@ local M = {}
 
 M.general = {
   n = {
-  ["<C-h>"] = {"<cmd> TmuxNavigateLeft<CR>", "window left" },
-  ["<C-l>"] = {"<cmd> TmuxNavigateRight<CR>", "window right" },
-  ["<C-j>"] = {"<cmd> TmuxNavigateDown<CR>", "window down" },
-  ["<C-k>"] = {"<cmd> TmuxNavigateUp<CR>", "window up" },
+    ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
+    ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
+    ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
+    ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
 
-  ["<leader>tw"] = {"<cmd> set wrap <CR>", "Line wrapping on"},
-  ["<leader>tn"] = {"<cmd> set nowrap <CR>", "Line wrapping off"}
+    ["<leader>tw"] = { "<cmd> set wrap <CR>", "Line wrapping on" },
+    ["<leader>tn"] = { "<cmd> set nowrap <CR>", "Line wrapping off" },
   },
 }
 
 M.dap = {
   plugin = true,
   n = {
-    ["<F6>"] = {"<cmd> DapStepOut <CR>"},
-    ["<F7>"] = {"<cmd> DapStepInto <CR>"},
-    ["<F8>"] = {"<cmd> DapStepOver <CR>"},
+    ["<F6>"] = { "<cmd> DapStepOut <CR>" },
+    ["<F7>"] = { "<cmd> DapStepInto <CR>" },
+    ["<F8>"] = { "<cmd> DapStepOver <CR>" },
 
-    ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>"},
-    ["<leader>dcb"] = {"<cmd> DapContinue <CR>"};
-    ["<leader>dtb"] = {"<cmd> DapTerminate <CR>"};
+    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+    ["<leader>dr"] = { "<cmd> DapContinue <CR>" },
+    ["<leader>dt"] = { "<cmd> DapTerminate <CR>" },
     ["<leader>duc"] = {
-      function ()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.close();
+      function()
+        require("dapui").close()
       end,
-      "Close dapui"
+      "Close dapui",
     },
     ["<leader>duo"] = {
-      function ()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.open();
+      function()
+        require("dapui").open()
       end,
-      "Open dapui"
+      "Open dapui",
     },
     ["<leader>dus"] = {
-      function ()
-        local widgets = require("dap.ui.widgets");
-        local sidebar = widgets.sidebar(widgets.scopes);
-        sidebar.open();
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
       end,
-      "Open debugging sidebar"
-    }
-  }
+      "Open debugging sidebar",
+    },
+  },
 }
 
 M.telescope = {
@@ -65,15 +61,15 @@ M.dap_go = {
       function()
         require("dap-go").debug_test()
       end,
-      "Debug go test"
+      "Debug go test",
     },
     ["<leader>dgl"] = {
       function()
         require("dap-go").debug_last()
       end,
-      "Debug last go test"
-    }
-  }
+      "Debug last go test",
+    },
+  },
 }
 
 M.gopher = {
@@ -81,12 +77,12 @@ M.gopher = {
   n = {
     ["<leader>gsj"] = {
       "<cmd> GoTagAdd json <CR>",
-      "Add json struct tags"
+      "Add json struct tags",
     },
     ["<leader>gsy"] = {
       "<cmd> GoTagAdd yaml <CR>",
-      "Add yaml struct tags"
-    }
+      "Add yaml struct tags",
+    },
   },
 }
 
@@ -95,11 +91,11 @@ M.dap_python = {
   n = {
     ["<leader>dpr"] = {
       function()
-        require('dap-python').test_method()
+        require("dap-python").test_method()
       end,
-      "Run Python test"
-    }
-  }
+      "Run Python test",
+    },
+  },
 }
 
 return M
