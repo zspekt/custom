@@ -35,7 +35,7 @@ local opts = {
 
     -- shell
     null_ls.builtins.formatting.shfmt,
-    null_ls.builtins.diagnostics.shellcheck,
+    -- null_ls.builtins.diagnostics.shellcheck,
   },
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then

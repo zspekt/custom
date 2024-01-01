@@ -41,6 +41,12 @@ lspconfig.pyright.setup {
   filetypes = { "python" },
 }
 
+lspconfig.bashls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "shell", "bash", "zsh", "sh" },
+}
+
 lspconfig.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
