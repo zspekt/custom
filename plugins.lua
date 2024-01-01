@@ -20,7 +20,7 @@ local plugins = {
     config = true,
     create_commands = false,
     keys = {
-      { "<leader>rr", "<cmd>lua require('muren.api').toggle_ui()<CR>", desc = "Toggle Muren UI" },
+      { "<leader>rp", "<cmd>lua require('muren.api').toggle_ui()<CR>", desc = "Toggle Muren UI" },
     },
   },
 
