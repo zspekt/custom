@@ -16,6 +16,14 @@ local plugins = {
   },
 
   {
+    "rasulomaroff/reactive.nvim",
+    lazy = false,
+    opts = function()
+      return require "custom.configs.reactive"
+    end,
+  },
+
+  {
     "AckslD/muren.nvim",
     config = true,
     create_commands = false,
