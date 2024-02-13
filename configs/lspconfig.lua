@@ -73,25 +73,12 @@ lspconfig.sqlls.setup {
   end,
 }
 
--- lspconfig.sqlls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
--- }
+lspconfig.angularls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
--- messes up formatting
---
--- lspconfig.sqls.setup {
---   on_attach = function(client, bufnr)
---     require("sqls").on_attach(client, bufnr) -- require sqls.nvim
---   end,
---   settings = {
---     sqls = {
---       connections = {
---         {
---           driver = "postgresql",
---           dataSourceName = "host=localhost port=5432 user=postgres password=admin dbname=test",
---         },
---       },
---     },
---   },
--- }
+lspconfig.cssls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}

@@ -31,26 +31,18 @@ local opts = {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.diagnostics.luacheck,
 
-    -- null_ls.builtins.formatting.prettier,
-
     -- shell
     null_ls.builtins.formatting.shfmt,
     -- null_ls.builtins.diagnostics.shellcheck,
 
     -- sql
-    -- null_ls.builtins.diagnostics.sqlfluff.with {
-    --   extra_args = { "--dialect", "postgres" },
-    -- },
-
-    -- does work. sqlfluffs doesnt like it though
     null_ls.builtins.formatting.pg_format,
 
-    -- this one also doesn't? the fuck?
-    -- null_ls.builtins.formatting.sqlfmt,
-
-    -- i have to be doing something wrong lmao this doesn't work either
-    -- null_ls.builtins.formatting.sql_formatter,
+    null_ls.builtins.formatting.prettier.with {
+      filetypes = { "html", "json", "yaml", "markdown", "css" },
+    },
   },
+
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then
       vim.api.nvim_clear_autocmds {

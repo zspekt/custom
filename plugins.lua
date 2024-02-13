@@ -1,5 +1,22 @@
 local plugins = {
 
+  -- {
+  --   "Exafunction/codeium.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   config = function()
+  --     require("codeium").setup {}
+  --   end,
+  -- },
+
+  -- codeium nvim uses cmp. i find the vim version to be more comf
+  {
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
+  },
+
   {
     "ThePrimeagen/harpoon",
     lazy = false,
@@ -166,6 +183,16 @@ local plugins = {
         -- "sqls",
         "sqlls",
         "sqlfluff",
+
+        -- css
+        "css-lsp",
+        "stylelint",
+
+        -- html
+        "angular-language-server",
+
+        --misc
+        "prettier",
       },
     },
   },
