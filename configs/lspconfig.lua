@@ -30,10 +30,10 @@ lspconfig.tsserver.setup {
   },
 }
 
-lspconfig.biome.setup {
-  -- on_attach = on_attach,
-  -- capabilities = capabilities,
-}
+-- lspconfig.biome.setup {
+-- on_attach = on_attach,
+-- capabilities = capabilities,
+-- }
 
 lspconfig.pyright.setup {
   on_attach = on_attach,
@@ -73,8 +73,7 @@ lspconfig.sqlls.setup {
   end,
 }
 
-lspconfig.angularls.setup {
-  on_attach = on_attach,
+lspconfig.html.setup {
   capabilities = capabilities,
 }
 

@@ -12,9 +12,25 @@ local plugins = {
   -- },
 
   -- codeium nvim uses cmp. i find the vim version to be more comf
+  --
+
+  {
+    "p00f/nvim-ts-rainbow",
+  },
+
   {
     "Exafunction/codeium.vim",
     event = "BufEnter",
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    ft = { "html" },
+  },
+
+  {
+    "tpope/vim-surround",
+    lazy = false,
   },
 
   {
@@ -189,7 +205,7 @@ local plugins = {
         "stylelint",
 
         -- html
-        "angular-language-server",
+        -- "angular-language-server",
 
         --misc
         "prettier",

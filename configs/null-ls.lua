@@ -35,6 +35,9 @@ local opts = {
     null_ls.builtins.formatting.shfmt,
     -- null_ls.builtins.diagnostics.shellcheck,
 
+    -- zsh
+    null_ls.builtins.formatting.beautysh,
+
     -- sql
     null_ls.builtins.formatting.pg_format,
 
