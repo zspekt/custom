@@ -81,3 +81,15 @@ lspconfig.cssls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+lspconfig.ccls.setup {
+  init_options = {
+    compilationDatabaseDirectory = "build",
+    index = {
+      threads = 0,
+    },
+    clang = {
+      excludeArgs = { "-frounding-math" },
+    },
+  },
+}

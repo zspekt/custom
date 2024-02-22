@@ -215,6 +215,10 @@ local plugins = {
         -- html
         -- "angular-language-server",
 
+        -- c
+        -- "clangd", apparently ccls is better. ccls isnt available on mason registry though
+        "clang-format",
+
         --misc
         "prettier",
       },
