@@ -41,6 +41,10 @@ local opts = {
     -- sql
     null_ls.builtins.formatting.pg_format,
 
+    -- dockerfile (not compose)
+    null_ls.builtins.diagnostics.hadolint,
+
+    -- misc
     null_ls.builtins.formatting.prettier.with {
       filetypes = { "html", "json", "yaml", "markdown", "css" },
     },

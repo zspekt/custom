@@ -64,6 +64,24 @@ lspconfig.gopls.setup {
   },
 }
 
+lspconfig.dockerls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "docker-langserver", "--stdio" },
+  filetypes = { "dockerfile" },
+  root_dir = util.root_pattern "Dockerfile",
+  single_file_support = true,
+}
+
+lspconfig.docker_compose_language_service.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "docker-compose-langserver", "--stdio" },
+  filetypes = { "yaml.docker-compose" },
+  root_dir = util.root_pattern("docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml"),
+  single_file_support = true,
+}
+
 lspconfig.sqlls.setup {
   on_attach = on_attach,
   capabilities = capabilities,

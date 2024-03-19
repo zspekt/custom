@@ -9,6 +9,7 @@ M.general = {
 
     ["<leader>tw"] = { "<cmd> set wrap <CR>", "Line wrapping on" },
     ["<leader>tn"] = { "<cmd> set nowrap <CR>", "Line wrapping off" },
+    ["<leader>sfc"] = { "<cmd> set filetype=yaml.docker-compose <CR>", "Set filetype to docker-compose" },
   },
 }
 
