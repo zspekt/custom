@@ -18,18 +18,18 @@ local plugins = {
     "p00f/nvim-ts-rainbow",
   },
 
-  {
-    "Exafunction/codeium.vim",
-    event = "BufEnter",
-
-    config = function()
-      vim.g.codeium_no_map_tab = 1
-
-      vim.keymap.set("i", "<C-y>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true, silent = true })
-    end,
-  },
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   event = "BufEnter",
+  --
+  --   config = function()
+  --     vim.g.codeium_no_map_tab = 1
+  --
+  --     vim.keymap.set("i", "<C-y>", function()
+  --       return vim.fn["codeium#Accept"]()
+  --     end, { expr = true, silent = true })
+  --   end,
+  -- },
 
   {
     "windwp/nvim-ts-autotag",
@@ -49,9 +49,9 @@ local plugins = {
     },
     config = true,
     keys = {
-      { "<leader>m",  "<cmd>lua require('harpoon.mark').add_file()<CR>",        desc = "Mark file with harpoon" },
-      { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>",          desc = "Go to next harpoon mark" },
-      { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>",          desc = "Go to previous harpoon mark" },
+      { "<leader>m", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "Mark file with harpoon" },
+      { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", desc = "Go to next harpoon mark" },
+      { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", desc = "Go to previous harpoon mark" },
       { "<leader>fi", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "Show harpoon marks" },
     },
   },
