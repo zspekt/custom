@@ -1,5 +1,17 @@
 local plugins = {
 
+  {
+    "stevearc/oil.nvim",
+    lazy = false,
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("oil").setup {
+        default_file_explorer = true,
+      }
+    end,
+  },
+
   -- {
   --   "Exafunction/codeium.nvim",
   --   dependencies = {
@@ -100,6 +112,12 @@ local plugins = {
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
+  },
+
+  -- nvim-dap-ui requires nvim-nio to be installed. Install from https://github.com/nvim-neotest/nvim-nio
+  {
+    "nvim-neotest/nvim-nio",
+    event = "VeryLazy",
   },
   {
     "rcarriga/nvim-dap-ui",

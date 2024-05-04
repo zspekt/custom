@@ -13,6 +13,13 @@ M.general = {
   },
 }
 
+M.oil = {
+  plugin = true,
+  n = {
+    ["-"] = { "<CMD>Oil<CR>", "Open parent directory" },
+  },
+}
+
 M.dap = {
   plugin = true,
   n = {
