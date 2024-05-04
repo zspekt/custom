@@ -14,7 +14,6 @@ M.general = {
 }
 
 M.oil = {
-  plugin = true,
   n = {
     ["-"] = { "<CMD>Oil<CR>", "Open parent directory" },
   },
