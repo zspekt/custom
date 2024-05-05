@@ -13,9 +13,27 @@ M.general = {
   },
 }
 
+M.noice = {
+  n = {
+    ["<leader>rd"] = { "<cmd>NoiceDismiss<CR>", "Dismiss Noice popups" },
+  },
+}
+
 M.oil = {
   n = {
     ["-"] = { "<CMD>Oil<CR>", "Open parent directory" },
+    ["gd"] = {
+      function()
+        local oil = require "oil"
+        local config = require "oil.config"
+        if #config.columns == 1 then
+          oil.set_columns { "icon", "permissions", "size", "mtime" }
+        else
+          oil.set_columns { "icon" }
+        end
+      end,
+      "Toggle detailed view",
+    },
   },
 }
 
