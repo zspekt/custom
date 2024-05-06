@@ -1,53 +1,5 @@
 local plugins = {
 
-  -- lazy.nvim
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      -- add any options here
-      routes = {
-        {
-          view = "notify",
-          filter = { event = "msg_showmode" },
-        },
-      },
-      lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-          ["hover.enabled"] = false,
-          ["signature.enabled"] = false,
-        },
-        -- conflict with nvchad if i don't disable these
-        hover = {
-          enabled = false,
-        },
-        signature = {
-          enabled = false,
-        }
-      },
-      -- you can enable a preset for easier configuration
-      presets = {
-        bottom_search = true,         -- use a classic bottom cmdline for search
-        command_palette = true,       -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false,           -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false,       -- add a border to hover docs and signature help
-      },
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    },
-  },
-
   {
     "stevearc/oil.nvim",
     lazy = false,
@@ -63,36 +15,9 @@ local plugins = {
     end,
   },
 
-  -- {
-  --   "Exafunction/codeium.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "hrsh7th/nvim-cmp",
-  --   },
-  --   config = function()
-  --     require("codeium").setup {}
-  --   end,
-  -- },
-
-  -- codeium nvim uses cmp. i find the vim version to be more comf
-  --
-
   {
     "p00f/nvim-ts-rainbow",
   },
-
-  -- {
-  --   "Exafunction/codeium.vim",
-  --   event = "BufEnter",
-  --
-  --   config = function()
-  --     vim.g.codeium_no_map_tab = 1
-  --
-  --     vim.keymap.set("i", "<C-y>", function()
-  --       return vim.fn["codeium#Accept"]()
-  --     end, { expr = true, silent = true })
-  --   end,
-  -- },
 
   {
     "windwp/nvim-ts-autotag",
@@ -112,9 +37,9 @@ local plugins = {
     },
     config = true,
     keys = {
-      { "<leader>m",  "<cmd>lua require('harpoon.mark').add_file()<CR>",        desc = "Mark file with harpoon" },
-      { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>",          desc = "Go to next harpoon mark" },
-      { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>",          desc = "Go to previous harpoon mark" },
+      { "<leader>m", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "Mark file with harpoon" },
+      { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", desc = "Go to next harpoon mark" },
+      { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", desc = "Go to previous harpoon mark" },
       { "<leader>fi", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "Show harpoon marks" },
     },
   },
@@ -301,4 +226,81 @@ local plugins = {
     end,
   },
 }
+
+-- {
+--     "folke/noice.nvim",
+--     event = "VeryLazy",
+--     opts = {
+--       -- add any options here
+--       routes = {
+--         {
+--           view = "notify",
+--           filter = { event = "msg_showmode" },
+--         },
+--       },
+--       lsp = {
+--         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+--         override = {
+--           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+--           ["vim.lsp.util.stylize_markdown"] = true,
+--           ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+--           ["hover.enabled"] = false,
+--           ["signature.enabled"] = false,
+--         },
+--         -- conflict with nvchad if i don't disable these
+--         hover = {
+--           enabled = false,
+--         },
+--         signature = {
+--           enabled = false,
+--         },
+--       },
+--       -- you can enable a preset for easier configuration
+--       presets = {
+--         bottom_search = true, -- use a classic bottom cmdline for search
+--         command_palette = true, -- position the cmdline and popupmenu together
+--         long_message_to_split = true, -- long messages will be sent to a split
+--         inc_rename = false, -- enables an input dialog for inc-rename.nvim
+--         lsp_doc_border = false, -- add a border to hover docs and signature help
+--       },
+--     },
+--     dependencies = {
+--       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+--       "MunifTanjim/nui.nvim",
+--       -- OPTIONAL:
+--       --   `nvim-notify` is only needed, if you want to use the notification view.
+--       --   If not available, we use `mini` as the fallback
+--       -- "rcarriga/nvim-notify",
+--     },
+--   },
+--
+--
+
+-- {
+--   "Exafunction/codeium.nvim",
+--   dependencies = {
+--     "nvim-lua/plenary.nvim",
+--     "hrsh7th/nvim-cmp",
+--   },
+--   config = function()
+--     require("codeium").setup {}
+--   end,
+-- },
+
+-- codeium nvim uses cmp. i find the vim version to be more comf
+--
+
+-- {
+--   "Exafunction/codeium.vim",
+--   event = "BufEnter",
+--
+--   config = function()
+--     vim.g.codeium_no_map_tab = 1
+--
+--     vim.keymap.set("i", "<C-y>", function()
+--       return vim.fn["codeium#Accept"]()
+--     end, { expr = true, silent = true })
+--   end,
+-- },
+
 return plugins
