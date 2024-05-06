@@ -1,15 +1,23 @@
 local plugins = {
 
   {
+    "andymass/vim-matchup",
+    lazy = false,
+    setup = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  },
+
+  {
     "nacro90/numb.nvim",
     lazy = false,
     config = function()
       require("numb").setup {
-        show_numbers = true, -- Enable 'number' for the window while peeking
-        show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+        show_numbers = true,         -- Enable 'number' for the window while peeking
+        show_cursorline = true,      -- Enable 'cursorline' for the window while peeking
         hide_relativenumbers = true, -- Enable turning off 'relativenumber' for the window while peeking
-        number_only = false, -- Peek only when the command is only a number instead of when it starts with a number
-        centered_peeking = true, -- Peeked line will be centered relative to window
+        number_only = false,         -- Peek only when the command is only a number instead of when it starts with a number
+        centered_peeking = true,     -- Peeked line will be centered relative to window
       }
     end,
   },
@@ -51,9 +59,9 @@ local plugins = {
     },
     config = true,
     keys = {
-      { "<leader>m", "<cmd>lua require('harpoon.mark').add_file()<CR>", desc = "Mark file with harpoon" },
-      { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>", desc = "Go to next harpoon mark" },
-      { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", desc = "Go to previous harpoon mark" },
+      { "<leader>m",  "<cmd>lua require('harpoon.mark').add_file()<CR>",        desc = "Mark file with harpoon" },
+      { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<CR>",          desc = "Go to next harpoon mark" },
+      { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<CR>",          desc = "Go to previous harpoon mark" },
       { "<leader>fi", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", desc = "Show harpoon marks" },
     },
   },
