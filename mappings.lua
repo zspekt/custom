@@ -22,7 +22,7 @@ M.noice = {
 M.oil = {
   n = {
     ["-"] = { "<CMD>Oil<CR>", "Open parent directory" },
-    ["gd"] = {
+    ["<leader>gd"] = {
       function()
         local oil = require "oil"
         local config = require "oil.config"
